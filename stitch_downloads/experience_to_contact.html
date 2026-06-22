@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Personal Portfolio - Sections 5-9</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Syne:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Devicon -->
+<link href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" rel="stylesheet" type="text/css"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#feba40",
+                    "obsidian": "#0A0A0B",
+                    "on-error": "#690005",
+                    "secondary-container": "#7f3e00",
+                    "on-primary-container": "#4d3300",
+                    "surface-dim": "#12131c",
+                    "primary": "#feba40",
+                    "on-surface-variant": "#d5c4ae",
+                    "on-secondary-fixed": "#301400",
+                    "on-tertiary-fixed-variant": "#005316",
+                    "secondary-fixed-dim": "#ffb784",
+                    "error-container": "#93000a",
+                    "surface-bright": "#383843",
+                    "surface-container": "#1e1f28",
+                    "surface-container-low": "#1a1b24",
+                    "outline-variant": "#504535",
+                    "error-red": "#E05252",
+                    "on-secondary-container": "#ffb17a",
+                    "tertiary-fixed": "#6fff7b",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#e2e1ee",
+                    "secondary-fixed": "#ffdcc6",
+                    "elevated": "#1A1A1E",
+                    "outline": "#9d8f7b",
+                    "border-subtle": "#252528",
+                    "primary-fixed-dim": "#feba40",
+                    "terminal-bg": "#0D1117",
+                    "on-tertiary": "#00390c",
+                    "on-primary-fixed-variant": "#604100",
+                    "surface-container-highest": "#33343e",
+                    "on-tertiary-fixed": "#002205",
+                    "surface": "#111114",
+                    "primary-container": "#d4961a",
+                    "surface-container-lowest": "#0c0e16",
+                    "primary-fixed": "#ffdead",
+                    "secondary": "#ffb784",
+                    "cream": "#F0EAD6",
+                    "on-surface": "#e2e1ee",
+                    "on-secondary": "#4f2500",
+                    "on-primary": "#432c00",
+                    "tertiary-container": "#0cbb3e",
+                    "inverse-primary": "#7f5700",
+                    "on-tertiary-container": "#004210",
+                    "on-secondary-fixed-variant": "#713700",
+                    "surface-variant": "#33343e",
+                    "inverse-surface": "#e2e1ee",
+                    "background": "#12131c",
+                    "tertiary-fixed-dim": "#4be260",
+                    "on-primary-fixed": "#281900",
+                    "error": "#ffb4ab",
+                    "inverse-on-surface": "#2f303a",
+                    "tertiary": "#4be260",
+                    "surface-container-high": "#282933"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "button-padding-x": "28px",
+                    "button-padding-y": "14px",
+                    "container-max": "1200px",
+                    "gutter": "2rem",
+                    "section-gap-mobile": "80px",
+                    "section-gap-desktop": "120px",
+                    "card-padding": "2rem"
+            },
+            "fontFamily": {
+                    "body-lg": ["DM Sans"],
+                    "body-md": ["DM Sans"],
+                    "section-heading-mobile": ["Syne"],
+                    "hero-name": ["Syne"],
+                    "body-sm": ["DM Sans"],
+                    "display-sm": ["Syne"],
+                    "hero-name-mobile": ["Syne"],
+                    "mono-code": ["JetBrains Mono"],
+                    "mono-label": ["JetBrains Mono"],
+                    "section-heading": ["Syne"],
+                    "badge": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "section-heading-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "hero-name": ["96px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "display-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "hero-name-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "800"}],
+                    "mono-code": ["14px", {"lineHeight": "1.7", "fontWeight": "400"}],
+                    "mono-label": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "section-heading": ["44px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "badge": ["12px", {"lineHeight": "1.0", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.obsidian');
+            color: theme('colors.cream');
+            scroll-behavior: smooth;
+        }
+
+        /* Material Symbols Setup */
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style>
+</head>
+<body class="font-body-md bg-obsidian text-cream antialiased selection:bg-primary/30 selection:text-primary overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="bg-obsidian/85 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-border-subtle shadow-sm flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<div class="font-hero-name text-display-sm text-primary flex items-center after:content-['_'] after:animate-pulse after:ml-1">
+            DEV_CORE_OS
+        </div>
+<div class="hidden md:flex space-x-8">
+<a class="font-mono-label text-mono-label text-on-surface-variant hover:text-primary transition-colors duration-300 transition-all duration-200 active:scale-95 uppercase tracking-widest" href="#projects">PROJECTS</a>
+<a class="font-mono-label text-mono-label text-on-surface-variant hover:text-primary transition-colors duration-300 transition-all duration-200 active:scale-95 uppercase tracking-widest" href="#stack">STACK</a>
+<a class="font-mono-label text-mono-label text-on-surface-variant hover:text-primary transition-colors duration-300 transition-all duration-200 active:scale-95 uppercase tracking-widest" href="#terminal">TERMINAL</a>
+<a class="font-mono-label text-mono-label text-primary border-b-2 border-primary pb-1 transition-colors duration-300 transition-all duration-200 active:scale-95 uppercase tracking-widest" href="#experience">EXPERIENCE</a>
+</div>
+<button class="bg-primary text-obsidian font-section-heading text-body-sm px-button-padding-x py-2 rounded font-bold hover:shadow-lg transition-transform hover:-translate-y-0.5">
+            GET_IN_TOUCH
+        </button>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-section-gap-desktop">
+<!-- Section 5: Experience -->
+<section class="max-w-container-max mx-auto px-gutter py-section-gap-mobile md:py-section-gap-desktop relative" id="experience">
+<h2 class="font-section-heading text-section-heading text-cream mb-16 text-center">Experience</h2>
+<div class="relative w-full h-full">
+<!-- Center Line -->
+<div class="absolute left-1/2 transform -translate-x-1/2 h-full w-[2px] bg-border-subtle hidden md:block"></div>
+<!-- Timeline Entries -->
+<div class="space-y-12">
+<!-- Entry 1 (Left) -->
+<div class="flex flex-col md:flex-row justify-between items-center w-full">
+<div class="w-full md:w-5/12 order-2 md:order-1 flex justify-end">
+<div class="bg-surface border border-border-subtle rounded p-card-padding hover:border-primary transition-colors duration-300 shadow-sm w-full transform hover:-translate-y-1 hover:shadow-2xl">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-section-heading text-display-sm text-cream">Tech Corp Inc.</h3>
+<span class="font-mono-label text-badge bg-elevated text-primary px-3 py-1 border border-border-subtle rounded">2021 - Present</span>
+</div>
+<h4 class="font-body-md text-body-md text-secondary-fixed-dim mb-4 flex items-center gap-2">
+<span class="text-xs">◈</span> Senior Full Stack Developer
+                                </h4>
+<ul class="space-y-2 text-on-surface-variant text-body-sm font-body-sm mb-6">
+<li class="flex gap-2"><span class="text-primary">→</span> Led development of core microservices.</li>
+<li class="flex gap-2"><span class="text-primary">→</span> Improved system performance by 40%.</li>
+</ul>
+<div class="flex flex-wrap gap-2">
+<span class="font-badge text-badge bg-elevated border border-border-subtle text-cream px-2 py-1 rounded">React</span>
+<span class="font-badge text-badge bg-elevated border border-border-subtle text-cream px-2 py-1 rounded">Node.js</span>
+</div>
+</div>
+</div>
+<!-- Dot -->
+<div class="w-10 h-10 order-1 md:order-2 rounded-full border-4 border-obsidian bg-primary shadow-[0_0_0_4px_rgba(212,150,26,0.25)] z-10 hidden md:flex items-center justify-center"></div>
+<div class="w-full md:w-5/12 order-3"></div>
+</div>
+<!-- Entry 2 (Right) -->
+<div class="flex flex-col md:flex-row justify-between items-center w-full">
+<div class="w-full md:w-5/12 order-1 md:order-1"></div>
+<!-- Dot -->
+<div class="w-10 h-10 order-2 md:order-2 rounded-full border-4 border-obsidian bg-primary shadow-[0_0_0_4px_rgba(212,150,26,0.25)] z-10 hidden md:flex items-center justify-center"></div>
+<div class="w-full md:w-5/12 order-3 md:order-3 flex justify-start">
+<div class="bg-surface border border-border-subtle rounded p-card-padding hover:border-primary transition-colors duration-300 shadow-sm w-full transform hover:-translate-y-1 hover:shadow-2xl">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-section-heading text-display-sm text-cream">Startup Hub</h3>
+<span class="font-mono-label text-badge bg-elevated text-primary px-3 py-1 border border-border-subtle rounded">2019 - 2021</span>
+</div>
+<h4 class="font-body-md text-body-md text-secondary-fixed-dim mb-4 flex items-center gap-2">
+<span class="text-xs">◈</span> Software Engineer
+                                </h4>
+<ul class="space-y-2 text-on-surface-variant text-body-sm font-body-sm mb-6">
+<li class="flex gap-2"><span class="text-primary">→</span> Built responsive user interfaces.</li>
+<li class="flex gap-2"><span class="text-primary">→</span> Integrated RESTful APIs.</li>
+</ul>
+<div class="flex flex-wrap gap-2">
+<span class="font-badge text-badge bg-elevated border border-border-subtle text-cream px-2 py-1 rounded">Vue.js</span>
+<span class="font-badge text-badge bg-elevated border border-border-subtle text-cream px-2 py-1 rounded">Python</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: Achievements -->
+<section class="max-w-container-max mx-auto px-gutter py-section-gap-mobile md:py-section-gap-desktop border-t border-border-subtle">
+<h2 class="font-section-heading text-section-heading text-cream mb-16 text-center">Achievements</h2>
+<!-- Metrics Row -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 border-b border-border-subtle pb-16">
+<div class="text-center md:border-r border-border-subtle last:border-0">
+<div class="font-hero-name text-hero-name-mobile text-primary mb-2">5+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant uppercase tracking-wider">Years Exp</div>
+</div>
+<div class="text-center md:border-r border-border-subtle last:border-0">
+<div class="font-hero-name text-hero-name-mobile text-primary mb-2">30+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant uppercase tracking-wider">Projects</div>
+</div>
+<div class="text-center md:border-r border-border-subtle last:border-0">
+<div class="font-hero-name text-hero-name-mobile text-primary mb-2">10+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant uppercase tracking-wider">Hackathons</div>
+</div>
+<div class="text-center">
+<div class="font-hero-name text-hero-name-mobile text-primary mb-2">1M+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant uppercase tracking-wider">Lines of Code</div>
+</div>
+</div>
+<!-- Achievement Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface border border-border-subtle rounded p-6 flex gap-4 hover:border-primary transition-all duration-300 group">
+<div class="w-12 h-12 bg-elevated rounded flex items-center justify-center shrink-0 group-hover:translate-x-1 transition-transform">
+<span class="material-symbols-outlined text-primary" data-icon="emoji_events">emoji_events</span>
+</div>
+<div>
+<h4 class="font-section-heading text-body-lg text-cream mb-1">Top 1% Global</h4>
+<div class="font-body-sm text-body-sm text-primary mb-2">LeetCode</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">Achieved high ranking in competitive programming contests.</p>
+<div class="font-mono-label text-badge text-outline">2023</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface border border-border-subtle rounded p-6 flex gap-4 hover:border-primary transition-all duration-300 group">
+<div class="w-12 h-12 bg-elevated rounded flex items-center justify-center shrink-0 group-hover:translate-x-1 transition-transform">
+<span class="material-symbols-outlined text-primary" data-icon="military_tech">military_tech</span>
+</div>
+<div>
+<h4 class="font-section-heading text-body-lg text-cream mb-1">Open Source Contributor</h4>
+<div class="font-body-sm text-body-sm text-primary mb-2">GitHub Archive</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">Code preserved in the Arctic Code Vault.</p>
+<div class="font-mono-label text-badge text-outline">2020</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 7: Coding Profiles -->
+<section class="max-w-container-max mx-auto px-gutter py-section-gap-mobile md:py-section-gap-desktop border-t border-border-subtle bg-surface-dim">
+<h2 class="font-section-heading text-section-heading text-cream mb-16 text-center">Coding Profiles</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- LeetCode Card -->
+<div class="bg-surface border border-border-subtle rounded p-card-padding relative overflow-hidden hover:border-primary transition-colors duration-300">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-4 mb-6">
+<i class="devicon-leetcode-plain text-3xl text-primary"></i>
+<h3 class="font-section-heading text-display-sm text-cream">LeetCode</h3>
+</div>
+<div class="font-mono-code text-mono-code text-tertiary-fixed-dim mb-6">@dev_core</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Rating</div>
+<div class="font-section-heading text-body-lg text-primary">2150</div>
+</div>
+<div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Solved</div>
+<div class="font-section-heading text-body-lg text-primary">800+</div>
+</div>
+</div>
+<a class="inline-flex items-center gap-1 font-mono-label text-mono-label text-primary hover:text-primary-fixed transition-colors" href="#">
+                            View Profile <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- GitHub Card -->
+<div class="bg-surface border border-border-subtle rounded p-card-padding relative overflow-hidden hover:border-primary transition-colors duration-300">
+<div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-50"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-4 mb-6">
+<i class="devicon-github-original text-3xl text-cream"></i>
+<h3 class="font-section-heading text-display-sm text-cream">GitHub</h3>
+</div>
+<div class="font-mono-code text-mono-code text-tertiary-fixed-dim mb-6">@system_architect</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Followers</div>
+<div class="font-section-heading text-body-lg text-primary">1.2k</div>
+</div>
+<div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Contributions</div>
+<div class="font-section-heading text-body-lg text-primary">3.5k</div>
+</div>
+</div>
+<a class="inline-flex items-center gap-1 font-mono-label text-mono-label text-primary hover:text-primary-fixed transition-colors" href="#">
+                            View Profile <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 8: Resume -->
+<section class="max-w-container-max mx-auto px-gutter py-section-gap-mobile md:py-section-gap-desktop border-t border-border-subtle">
+<div class="bg-surface border border-border-subtle rounded-lg p-8 md:p-16 max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12 relative overflow-hidden group">
+<!-- Shimmer Effect -->
+<div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary/5 to-transparent group-hover:animate-[shimmer_2s_infinite]"></div>
+<div class="flex-1 text-center md:text-left relative z-10">
+<h2 class="font-section-heading text-section-heading text-cream mb-4">Download My Resume</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Get a detailed overview of my experience, skills, and education in PDF format.</p>
+<button class="bg-primary text-obsidian font-section-heading text-body-lg px-8 py-4 rounded font-bold hover:shadow-[0_0_20px_rgba(212,150,26,0.3)] transition-all flex items-center gap-2 mx-auto md:mx-0 mb-4">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                        Download Resume
+                    </button>
+<div class="font-mono-label text-badge text-outline mb-2">Last Updated: October 2024</div>
+<a class="font-mono-label text-mono-label text-primary hover:underline" href="#">Or view online →</a>
+</div>
+<div class="w-48 h-64 bg-elevated border border-border-subtle rounded shadow-2xl relative z-10 flex flex-col p-4 opacity-80 rotate-3 transform group-hover:rotate-0 transition-transform duration-500">
+<div class="h-4 bg-border-subtle w-3/4 mb-4 rounded"></div>
+<div class="h-2 bg-border-subtle w-full mb-2 rounded"></div>
+<div class="h-2 bg-border-subtle w-5/6 mb-6 rounded"></div>
+<div class="h-3 bg-primary/20 w-1/2 mb-3 rounded"></div>
+<div class="h-2 bg-border-subtle w-full mb-1 rounded"></div>
+<div class="h-2 bg-border-subtle w-4/5 rounded"></div>
+</div>
+</div>
+</section>
+<!-- Section 9: Contact -->
+<section class="max-w-container-max mx-auto px-gutter py-section-gap-mobile md:py-section-gap-desktop border-t border-border-subtle">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<!-- Left: Form -->
+<div>
+<div class="font-mono-label text-mono-label text-tertiary-fixed-dim mb-4">&gt; send_message.sh</div>
+<h2 class="font-section-heading text-section-heading text-cream mb-8">Get In Touch</h2>
+<form class="space-y-6">
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-2">Name</label>
+<input class="w-full bg-elevated border border-border-subtle text-cream font-mono-code px-4 py-3 rounded focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors" type="text"/>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-2">Email</label>
+<input class="w-full bg-elevated border border-border-subtle text-cream font-mono-code px-4 py-3 rounded focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors" type="email"/>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-2">Message</label>
+<textarea class="w-full bg-elevated border border-border-subtle text-cream font-mono-code px-4 py-3 rounded focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors resize-none" rows="5"></textarea>
+</div>
+<button class="w-full bg-primary text-obsidian font-section-heading text-body-lg px-6 py-4 rounded font-bold hover:bg-primary-fixed transition-colors" type="submit">
+                            Send Message →
+                        </button>
+</form>
+</div>
+<!-- Right: Contact Details -->
+<div class="flex flex-col justify-center">
+<div class="space-y-8 mb-12">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-elevated rounded-full flex items-center justify-center border border-border-subtle">
+<span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
+</div>
+<div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Email</div>
+<div class="font-mono-code text-body-md text-cream">hello@devcore.os</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-elevated rounded-full flex items-center justify-center border border-border-subtle">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+</div>
+<div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Location</div>
+<div class="font-mono-code text-body-md text-cream">San Francisco, CA</div>
+</div>
+</div>
+</div>
+<div class="mb-8">
+<div class="font-body-sm text-body-sm text-on-surface-variant mb-4">Currently available for:</div>
+<ul class="space-y-2 font-mono-code text-body-sm text-cream">
+<li class="flex items-center gap-2"><span class="text-tertiary-fixed-dim">◉</span> Freelance Work</li>
+<li class="flex items-center gap-2"><span class="text-tertiary-fixed-dim">◉</span> Full-time Roles</li>
+<li class="flex items-center gap-2"><span class="text-tertiary-fixed-dim">◉</span> Open Source</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-obsidian w-full py-section-gap-mobile md:py-12 border-t border-border-subtle flat no shadows flex flex-col md:flex-row justify-between items-center px-gutter max-w-container-max mx-auto gap-8 transition-all duration-300">
+<div class="font-mono-label text-mono-label text-on-surface-variant uppercase text-center md:text-left">
+            © 2024 SYSTEM_ARCHITECT. ALL RIGHTS RESERVED.
+        </div>
+<div class="font-body-sm text-body-sm text-outline text-center">
+            Built with ♥ and ☕
+        </div>
+<div class="flex gap-6">
+<a class="font-mono-label text-mono-label text-on-surface-variant hover:text-primary transition-transform hover:-translate-y-1" href="#">GITHUB</a>
+<a class="font-mono-label text-mono-label text-on-surface-variant hover:text-primary transition-transform hover:-translate-y-1" href="#">LINKEDIN</a>
+<a class="font-mono-label text-mono-label text-on-surface-variant hover:text-primary transition-transform hover:-translate-y-1" href="#">SOURCE</a>
+</div>
+</footer>
+<style>
+        @keyframes shimmer {
+            100% { transform: translateX(100%); }
+        }
+    </style>
+</body></html>

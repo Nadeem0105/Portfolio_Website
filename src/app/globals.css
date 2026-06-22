@@ -1,26 +1,356 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Design System Colors */
+  --color-obsidian: #0A0A0B;
+  --color-surface: #111114;
+  --color-elevated: #1A1A1E;
+  --color-terminal-bg: #0D1117;
+  --color-border-subtle: #252528;
+  --color-border-active: #3A3A3E;
+  --color-primary: #D4961A;
+  --color-secondary: #B86B2E;
+  --color-tertiary: #39D353;
+  --color-error-red: #E05252;
+  --color-cream: #F0EAD6;
+  --color-on-surface: #e2e1ee;
+  --color-on-surface-variant: #8A8A96;
+  --color-outline: #555560;
+
+  /* Fonts */
+  --font-display: var(--font-syne), sans-serif;
+  --font-sans: var(--font-dm-sans), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+
+  /* Custom Spacing */
+  --spacing-gutter: 2rem;
+  --spacing-container-max: 1200px;
+  --spacing-card-padding: 2rem;
+  --spacing-section-gap-desktop: 120px;
+  --spacing-section-gap-mobile: 80px;
+  --spacing-button-padding-x: 28px;
+  --spacing-button-padding-y: 14px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Base Styles & Resets */
+body {
+  background-color: #0A0A0B;
+  color: #F0EAD6;
+  font-family: var(--font-dm-sans), sans-serif;
+  overflow-x: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Selection Highlight */
+::selection {
+  background-color: rgba(212, 150, 26, 0.25);
+  color: #D4961A;
+}
+
+/* Custom Cursor */
+#cursor-dot {
+  width: 4px;
+  height: 4px;
+  background-color: #D4961A;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s ease-out;
+}
+
+#cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid #D4961A;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              height 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              background-color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-state #cursor-ring {
+  width: 56px;
+  height: 56px;
+  background-color: rgba(212, 150, 26, 0.1);
+  border-color: #D4961A;
+}
+
+/* Glitch Effect */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:transparent;
+  clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+}
+
+.glitch-active::before {
+  animation: glitch-anim-1 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  left: 3px;
+  text-shadow: -3px 0 #B86B2E;
+  clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%);
+}
+
+.glitch-active::after {
+  animation: glitch-anim-2 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite reverse;
+  left: -3px;
+  text-shadow: 3px 0 #39D353;
+  clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+}
+
+@keyframes glitch-anim-1 {
+  0% {
+    clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%);
+    transform: translate(0) skew(-1deg);
+  }
+  20% {
+    clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+    transform: translate(3px, -2px) skew(1deg);
+  }
+  40% {
+    clip-path: polygon(0 10%, 100% 10%, 100% 25%, 0 25%);
+    transform: translate(-3px, 2px) skew(-2deg);
+  }
+  60% {
+    clip-path: polygon(0 80%, 100% 80%, 100% 95%, 0 95%);
+    transform: translate(3px, 2px) skew(2deg);
+  }
+  80% {
+    clip-path: polygon(0 50%, 100% 50%, 100% 70%, 0 70%);
+    transform: translate(-2px, -2px) skew(-1deg);
+  }
+  100% {
+    clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%);
+    transform: translate(0) skew(0deg);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes glitch-anim-2 {
+  0% {
+    clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+    transform: translate(0);
+  }
+  33% {
+    clip-path: polygon(0 40%, 100% 40%, 100% 60%, 0 60%);
+    transform: translate(-2px, 2px);
+  }
+  66% {
+    clip-path: polygon(0 70%, 100% 70%, 100% 90%, 0 90%);
+    transform: translate(2px, -2px);
+  }
+  100% {
+    clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+    transform: translate(0);
+  }
 }
+
+/* Terminal Scanline */
+.scanline::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(18, 19, 28, 0) 0%,
+    rgba(18, 19, 28, 0) 50%,
+    rgba(0, 0, 0, 0.15) 50%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+  background-size: 100% 6px;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.45;
+  animation: scanline-drift 20s linear infinite;
+}
+
+@keyframes scanline-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 100%;
+  }
+}
+
+/* Blinking Cursor */
+.blinking-cursor {
+  animation: blink-anim 1s step-end infinite;
+}
+
+@keyframes blink-anim {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Matrix Effect Animation */
+.matrix-active {
+  animation: matrix-pulse 0.3s ease-in-out;
+}
+
+@keyframes matrix-pulse {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.4) drop-shadow(0 0 10px rgba(57, 211, 83, 0.5)); }
+  100% { filter: brightness(1); }
+}
+
+/* Custom Corner Plusses for Featured Images / Borders */
+.plus-corner-tr::before,
+.plus-corner-tr::after {
+  content: "+";
+  position: absolute;
+  top: -12px;
+  right: -6px;
+  color: #D4961A;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 20px;
+  font-weight: 700;
+  z-index: 15;
+}
+
+.plus-corner-bl::before,
+.plus-corner-bl::after {
+  content: "+";
+  position: absolute;
+  bottom: -12px;
+  left: -6px;
+  color: #D4961A;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 20px;
+  font-weight: 700;
+  z-index: 15;
+}
+
+/* Shimmer Animation */
+@keyframes shimmer-move {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shimmer-active {
+  animation: shimmer-move 2.5s infinite linear;
+}
+
+/* Custom Hide Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Restore native cursor for text inputs & interactive elements */
+input[type="text"],
+input[type="email"],
+textarea {
+  cursor: text !important;
+}
+button,
+a,
+select,
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+/* Hide custom cursor when hovering over inputs or textareas to let default cursors show clearly */
+body:has(input:hover, textarea:hover) #cursor-dot,
+body:has(input:hover, textarea:hover) #cursor-ring {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+/* Force standard system cursor and pointer events for the entire Contact section */
+#contact,
+#contact * {
+  cursor: auto !important;
+}
+#contact button,
+#contact a {
+  cursor: pointer !important;
+}
+#contact input,
+#contact textarea {
+  cursor: text !important;
+}
+
+/* When hovering over the contact section, hide the custom cursor dot/ring */
+#contact:hover ~ #cursor-dot,
+#contact:hover ~ #cursor-ring,
+body:has(#contact:hover) #cursor-dot,
+body:has(#contact:hover) #cursor-ring {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Custom Background Animations */
+.animate-grid-pan {
+  animation: grid-pan 80s linear infinite;
+  will-change: background-position;
+}
+
+@keyframes grid-pan {
+  from { background-position: 0 0; }
+  to { background-position: 8rem 8rem; }
+}
+
+.animate-float-slow {
+  animation: float-slow 25s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 30s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+  50% {
+    transform: translate3d(40px, -60px, 0) scale3d(1.15, 1.15, 1);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale3d(1.15, 1.15, 1);
+  }
+  50% {
+    transform: translate3d(-40px, 60px, 0) scale3d(0.85, 0.85, 1);
+  }
+}
+
+/* Optimize Performance on Mobile Viewports */
+@media (max-width: 768px) {
+  .animate-grid-pan,
+  .animate-float-slow,
+  .animate-float-reverse {
+    animation: none !important;
+  }
+}
+
