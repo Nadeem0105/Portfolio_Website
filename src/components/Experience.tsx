@@ -104,6 +104,17 @@ function TimelineItem({ item, index }: { item: Milestone; index: number }) {
 export default function Experience() {
   const history: Milestone[] = [
     {
+      role: "Software & Business Development Intern",
+      company: "Butter Search",
+      period: "2026 - PRESENT",
+      bullets: [
+        "Developed AI-powered lead generation workflows by integrating automation pipelines, third-party APIs, and AI models to identify and qualify high-quality prospects.",
+        "Built automated outreach and campaign management systems, streamlining lead engagement while reducing manual effort.",
+        "Designed analytics and reporting dashboards to monitor campaign performance, lead conversion metrics, and business growth."
+      ],
+      logo: "/butter.png"
+    },
+    {
       role: "SOFTWARE DEVELOPMENT ENGINEER INTERN",
       company: "ISOEH",
       period: "2026 - PRESENT",
