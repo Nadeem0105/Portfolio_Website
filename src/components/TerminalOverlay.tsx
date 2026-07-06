@@ -33,7 +33,7 @@ const welcomeBanner = `
 const availableCommands = [
   "help", "clear", "home", "about", "skills", "projects", "experience", 
   "achievements", "profiles", "resume", "contact", "whoami", "ls", 
-  "cat about.txt", "cat skills.json", "cat Resume_MohammadNadeem.pdf", "ls projects/", "cat projects/", 
+  "cat about.txt", "cat skills.json", "cat Mohammad_Nadeem_Resume.pdf", "ls projects/", "cat projects/", 
   "ls achievements/", "pwd", "date", "uname -a", "history", "sudo", 
   "coffee", "skills --verbose", "github", "linkedin", "matrix", "banner", 
   "echo", "theme", "exit", "quit"
@@ -248,8 +248,8 @@ Available commands:
         if (arg === "download" || arg === "-d" || arg === "--download") {
           response.push({ type: "output", text: "Downloading resume PDF..." });
           const link = document.createElement("a");
-          link.href = "/Resume_MohammadNadeem.pdf";
-          link.download = "Resume_MohammadNadeem.pdf";
+          link.href = "/Mohammad_Nadeem_Resume.pdf";
+          link.download = "Mohammad_Nadeem_Resume.pdf";
           link.click();
         } else {
           response.push({ type: "output", text: "Scrolling to Credentials/Resume section..." });
@@ -312,7 +312,7 @@ Base:        Kolkata, WB, India`
         if (!arg) {
           response.push({
             type: "output",
-            text: "about.txt    skills.json    projects/    achievements/    Resume_MohammadNadeem.pdf"
+            text: "about.txt    skills.json    projects/    achievements/    Mohammad_Nadeem_Resume.pdf"
           });
         } else if (arg === "projects" || arg === "projects/") {
           response.push({
@@ -341,11 +341,11 @@ Base:        Kolkata, WB, India`
             type: "output",
             text: JSON.stringify(skillsData, null, 2)
           });
-        } else if (arg === "Resume_MohammadNadeem.pdf" || arg === "resume.pdf") {
-          response.push({ type: "output", text: "Triggering download of Resume_MohammadNadeem.pdf..." });
+        } else if (arg === "Mohammad_Nadeem_Resume.pdf" || arg === "resume.pdf") {
+          response.push({ type: "output", text: "Triggering download of Mohammad_Nadeem_Resume.pdf..." });
           const link = document.createElement("a");
-          link.href = "/Resume_MohammadNadeem.pdf";
-          link.download = "Resume_MohammadNadeem.pdf";
+          link.href = "/Mohammad_Nadeem_Resume.pdf";
+          link.download = "Mohammad_Nadeem_Resume.pdf";
           link.click();
         } else if (arg.startsWith("projects/")) {
           const projName = arg.replace("projects/", "").replace("/", "");

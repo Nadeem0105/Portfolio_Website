@@ -11,8 +11,8 @@ export default function Resume() {
     setTimeout(() => {
       // Trigger native download
       const link = document.createElement("a");
-      link.href = "/Resume_MohammadNadeem.pdf"; // PDF should be placed in public/
-      link.download = "Resume_MohammadNadeem.pdf";
+      link.href = "/Mohammad_Nadeem_Resume.pdf"; // PDF should be placed in public/
+      link.download = "Mohammad_Nadeem_Resume.pdf";
       link.click();
       setDownloading(false);
     }, 1200);
@@ -52,10 +52,10 @@ export default function Resume() {
               My detailed resume provides comprehensive specifications regarding my academic trajectory, including full technical stack exposure, embedded systems project history, cybersecurity coursework, and web development builds.
             </p>
             <div className="font-mono text-xs space-y-2.5 border-l-2 border-primary/25 pl-4 py-1 text-on-surface-variant">
-              <p>FILENAME: <span className="text-cream">Resume_MohammadNadeem.pdf</span></p>
-              <p>SIZE: <span className="text-cream">123.7 KB</span></p>
+              <p>FILENAME: <span className="text-cream">Mohammad_Nadeem_Resume.pdf</span></p>
+              <p>SIZE: <span className="text-cream">153.1 KB</span></p>
               <p>HASH: <span className="text-cream">SHA-256 (a3f9c21b...)</span></p>
-              <p>LAST_UPDATED: <span className="text-cream">Q2 2026</span></p>
+              <p>LAST_UPDATED: <span className="text-cream">Q3 2026</span></p>
             </div>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -68,7 +68,7 @@ export default function Resume() {
                 <span>{downloading ? "DOWNLOADING..." : "DOWNLOAD_PDF"}</span>
               </button>
               <a
-                href="/Resume_MohammadNadeem.pdf"
+                href="/Mohammad_Nadeem_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-mono text-xs font-bold border border-border-subtle bg-elevated text-primary px-6 py-3.5 rounded hover:border-primary hover:bg-surface-variant transition-colors hover-trigger flex items-center gap-2 active:scale-95"
