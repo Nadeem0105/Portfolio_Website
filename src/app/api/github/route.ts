@@ -61,7 +61,7 @@ export async function GET() {
     // Prepare requests in parallel
     const userPromise = fetch(token ? "https://api.github.com/user" : `https://api.github.com/users/${username}`, { headers, next: { revalidate: 3600 } });
     const reposPromise = fetch(`https://api.github.com/users/${username}/repos?per_page=100`, { headers, next: { revalidate: 3600 } });
-    const eventsPromise = fetch(`https://api.github.com/users/${username}/events`, { headers, next: { revalidate: 60 } });
+    const recentReposPromise = fetch(`https://api.github.com/users/${username}/repos?sort=pushed&direction=desc&per_page=5`, { headers, next: { revalidate: 60 } });
 
     // GraphQL request for contribution calendar
     const graphqlQuery = `
@@ -95,10 +95,10 @@ export async function GET() {
       next: { revalidate: 3600 }
     });
 
-    const [userRes, reposRes, eventsRes, graphqlRes] = await Promise.all([
+    const [userRes, reposRes, recentReposRes, graphqlRes] = await Promise.all([
       userPromise,
       reposPromise,
-      eventsPromise,
+      recentReposPromise,
       graphqlPromise
     ]);
 
@@ -115,23 +115,27 @@ export async function GET() {
       }
     }
 
-    // 3. Parse recent push events
+    // 3. Fetch recent commits from recently pushed repos
     const recentCommits: Array<{ repo: string; message: string; date: string }> = [];
-    if (eventsRes.ok) {
-      const events = await eventsRes.json();
-      if (Array.isArray(events)) {
-        const pushEvents = events.filter(e => e.type === "PushEvent");
-        for (const event of pushEvents) {
+    if (recentReposRes.ok) {
+      const recentRepos = await recentReposRes.json();
+      if (Array.isArray(recentRepos)) {
+        for (const repo of recentRepos) {
           if (recentCommits.length >= 3) break;
-          const repoName = event.repo.name.split("/")[1] || event.repo.name;
-          const commits = event.payload.commits || [];
-          for (const commit of commits) {
-            if (recentCommits.length >= 3) break;
-            recentCommits.push({
-              repo: repoName,
-              message: commit.message.split("\n")[0],
-              date: getRelativeTime(event.created_at)
-            });
+          try {
+            const commitsRes = await fetch(`https://api.github.com/repos/${username}/${repo.name}/commits?per_page=1`, { headers, next: { revalidate: 60 } });
+            if (commitsRes.ok) {
+              const commits = await commitsRes.json();
+              if (commits && commits.length > 0) {
+                recentCommits.push({
+                  repo: repo.name,
+                  message: commits[0].commit.message.split('\n')[0],
+                  date: getRelativeTime(commits[0].commit.author.date)
+                });
+              }
+            }
+          } catch (e) {
+            console.error(`Failed to fetch commits for ${repo.name}`, e);
           }
         }
       }

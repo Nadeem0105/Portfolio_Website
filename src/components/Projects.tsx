@@ -125,22 +125,22 @@ function ProjectCard({ project }: { project: Project }) {
 
 export default function Projects() {
   const featuredProject = {
-    name: "IntelliMail-AI",
-    desc: "A hybrid email intelligence platform that combines Machine Learning and Large Language Models to classify spam, prioritize incoming messages, and generate human-readable explanations for every decision.Built with FastAPI, Scikit-learn, and Google Gemini, IntelliMail AI delivers accurate email analysis through a multi-stage AI pipeline that balances speed, contextual understanding, and explainability.",
-    tech: ["FastAPI", "Scikit-learn", "Gemini-API", "TF-IDF", "NAIVE BAYES", "JAVASCRIPT", "HTML/CSS"],
-    githubUrl: "https://github.com/Nadeem0105/IntelliMail_AI",
-    liveUrl: "https://intelli-mail-ai.vercel.app",
-    category: "FEATURED_ENGINE"
+    name: "Naagrik",
+    desc: "A full-stack civic engagement platform that enables citizens to report public infrastructure issues, track complaint progress in real time, and improve communication with municipal authorities. The platform promotes transparency, accountability, and community participation through a modern, user-friendly interface.",
+    tech: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT"],
+    githubUrl: "https://github.com/Nadeem0105/Naagrik",
+    liveUrl: "https://naagrik-frontend-909339119086.asia-south1.run.app/",
+    category: "CIVIC_PLATFORM"
   };
 
   const secondaryProjects: Project[] = [
     {
-      name: "Aura Ledger",
-      desc: "Decentralized log verification engine implemented in Rust and compiled to WebAssembly. Enables instant validation of application logging files with cryptography proofs, avoiding ledger bloating and databases indexing bottlenecks.",
-      tech: ["Rust", "Wasm", "SHA-256", "SQLite"],
-      githubUrl: "https://github.com",
-      liveUrl: "https://github.com",
-      category: "CRYPTO_STORAGE"
+      name: "IntelliMail-AI",
+      desc: "A hybrid email intelligence platform that combines Machine Learning and Large Language Models to classify spam, prioritize incoming messages, and generate human-readable explanations for every decision.",
+      tech: ["FastAPI", "Scikit-learn", "Gemini-API", "TF-IDF"],
+      githubUrl: "https://github.com/Nadeem0105/IntelliMail_AI",
+      liveUrl: "https://intelli-mail-ai.vercel.app",
+      category: "AI_ENGINE"
     },
     {
       name: "WeatherSphere",
@@ -151,12 +151,11 @@ export default function Projects() {
       category: "WEATHER_INTELLIGENCE"
     },
     {
-      name: "Core Financial Processor",
-      desc: "A low-latency transactional ledger built in C++ featuring multi-threaded RingBuffers for message exchanges. Connects directly to memory-mapped files to guarantee persistent data logging with sub-millisecond execution times.",
-      tech: ["C++", "POSIX Threads", "Redis", "Valgrind"],
-      githubUrl: "https://github.com",
-      liveUrl: "https://github.com",
-      category: "SYSTEMS_ENG"
+      name: "AI Lead Engine",
+      desc: "Built an AI-powered lead generation and outreach engine for Butter Search using Google Sheets, Apps Script, and Gemini. Ingests leads from 4 sources, scores them with AI, generates personalized emails, and automates follow-ups at scale.",
+      tech: ["Apps Script", "Gemini API", "Google Sheets", "Apollo.io"],
+      githubUrl: "https://github.com/Nadeem0105/AI-Lead-Engine-",
+      category: "AUTOMATION"
     }
   ];
 

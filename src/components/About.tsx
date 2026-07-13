@@ -14,10 +14,10 @@ export default function About() {
   ];
 
   const stats = [
-    { value: "5+", label: "YEARS OF EXPERIENCE" },
-    { value: "50+", label: "COMPLETED PROJECTS" },
-    { value: "1M+", label: "LINES OF CODE" },
-    { value: "400L+", label: "COFFEE CONSUMED" }
+    { value: "2+", label: "YEARS CODING" },
+    { value: "15+", label: "GITHUB REPOS" },
+    { value: "3", label: "HACKATHONS PARTICIPATED" },
+    { value: "100+", label: "YEARLY COMMITS" }
   ];
 
   return (

@@ -12,10 +12,10 @@ const skillsData = {
 };
 
 const projectsData = [
+  { name: "naagrik", desc: "Smart Civic Issue Reporting & Community Engagement Platform", tech: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT"], url: "https://github.com/Nadeem0105/Naagrik" },
   { name: "intellimail-ai", desc: "Hybrid email intelligence platform combining ML and LLMs to classify spam and explain decisions", tech: ["FastAPI", "Scikit-learn", "Gemini-API", "TF-IDF"], url: "https://github.com/Nadeem0105/IntelliMail_AI" },
   { name: "weathersphere", desc: "High-fidelity atmospheric intelligence system providing real-time forecasts and analytics", tech: ["Next.js", "OpenWeather API", "TypeScript"], url: "https://github.com/Nadeem0105/WeatherSphere" },
-  { name: "aura-ledger", desc: "Decentralized logging system in Rust and compiled to WebAssembly", tech: ["Rust", "WASM", "SHA-256", "SQLite"], url: "https://github.com" },
-  { name: "core-financial-processor", desc: "Low-latency financial processing engine in C++ featuring multi-threaded RingBuffers", tech: ["C++", "POSIX Threads", "Redis", "Valgrind"], url: "https://github.com" }
+  { name: "ai-lead-engine", desc: "AI-powered lead generation and outreach engine built on Google Sheets and Apps Script", tech: ["Apps Script", "Gemini API", "Google Sheets", "Apollo.io"], url: "https://github.com/Nadeem0105/AI-Lead-Engine-" }
 ];
 
 const welcomeBanner = `
@@ -322,7 +322,7 @@ Base:        Kolkata, WB, India`
         } else if (arg === "achievements" || arg === "achievements/") {
           response.push({
             type: "output",
-            text: "leetcode_top_1.txt    arctic_vault.txt    hackathons.txt"
+            text: "isoeh_internship.txt    buttersearch_internship.txt    full_stack.txt"
           });
         } else {
           response.push({ type: "error", text: `ls: cannot access '${arg}': No such file or directory` });
@@ -364,12 +364,12 @@ URL:         ${match.url}`
           }
         } else if (arg.startsWith("achievements/")) {
           const achName = arg.replace("achievements/", "");
-          if (achName === "leetcode_top_1.txt") {
-            response.push({ type: "output", text: "LeetCode: Top 1% Global. Achieved high ranking in competitive programming contests." });
-          } else if (achName === "arctic_vault.txt") {
-            response.push({ type: "output", text: "GitHub Archive: Contributions preserved in the Arctic Code Vault." });
-          } else if (achName === "hackathons.txt") {
-            response.push({ type: "output", text: "Won 3+ National Level Hackathons for prototyping scalable solutions." });
+          if (achName === "isoeh_internship.txt") {
+            response.push({ type: "output", text: "Software Development Intern at ISOEH. Worked on frontend development, API integration, and AWS EC2 deployment." });
+          } else if (achName === "buttersearch_internship.txt") {
+            response.push({ type: "output", text: "Software Intern at ButterSearch. Built AI automation workflows for lead generation." });
+          } else if (achName === "full_stack.txt") {
+            response.push({ type: "output", text: "Full Stack Developer. Designed and developed Naagrik, IntelliMail AI, Exam Alchemy, and WeatherSphere." });
           } else {
             response.push({ type: "error", text: `cat: ${arg}: No such achievement file.` });
           }

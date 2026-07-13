@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
-import { Award, Trophy, Star, BookOpen } from "lucide-react";
+import { Briefcase, Rocket, Laptop, Target } from "lucide-react";
 
 interface CounterProps {
   end: number;
@@ -70,24 +71,24 @@ function Counter({ end, suffix = "" }: CounterProps) {
 export default function Achievements() {
   const accomplishments = [
     {
-      title: "LeetCode Contest Rating 2185+",
-      desc: "Ranked in the top 1.05% globally. Solved over 800 algorithmic challenges with consistent performance in weekly contests.",
-      icon: <Trophy className="text-primary" size={24} />
+      title: "Software Development Intern — ISOEH",
+      desc: "Worked on frontend development, API integration, AWS EC2 deployment, Nginx configuration, React Native applications, and UI/UX improvements while contributing to production-ready software.",
+      icon: <Image src="/isoeh.png" alt="ISOEH Logo" width={24} height={24} className="object-contain" />
     },
     {
-      title: "GitHub Arctic Code Vault",
-      desc: "Open source contributions archived in the GitHub Arctic Code Vault, preserving engineering builds for future generations.",
-      icon: <Star className="text-primary" size={24} />
+      title: "Software Intern — ButterSearch",
+      desc: "Built AI automation workflows for lead generation, integrated AI models and third-party APIs, and contributed to business development initiatives.",
+      icon: <Image src="/butter.png" alt="ButterSearch Logo" width={24} height={24} className="object-contain" />
     },
     {
-      title: "3x Hackathon Champion",
-      desc: "Led teams of developers to secure 1st place finishes in regional and national hackathons, building prototype analytics pipelines.",
-      icon: <Award className="text-primary" size={24} />
+      title: "Full Stack Developer",
+      desc: "Designed and developed multiple end-to-end applications including Naagrik, IntelliMail AI, Exam Alchemy, and WeatherSphere using React, Next.js, Node.js, Express, MongoDB, and FastAPI.",
+      icon: <Laptop className="text-primary" size={24} />
     },
     {
-      title: "Technical Writer & Author",
-      desc: "Published 12+ deep-dives on systems architecture, microservices synchronization, and low-latency programming guides.",
-      icon: <BookOpen className="text-primary" size={24} />
+      title: "Coding Ninjas SRM Member",
+      desc: "Contributed to the Web Development domain and helped organize technical events including CAD 3.0, Capture the Flag 4.0, and CAD 4.0.",
+      icon: <Image src="/coding_ninjas.png" alt="Coding Ninjas Logo" width={24} height={24} className="object-contain rounded-sm" />
     }
   ];
 
@@ -108,10 +109,10 @@ export default function Achievements() {
         {/* Section Header */}
         <div className="flex flex-col items-start space-y-2 mb-16 relative w-fit">
           <div className="font-mono text-xs font-semibold text-primary uppercase tracking-widest">
-            05 / PERFORMANCE
+            05 / CAREER_HIGHLIGHTS
           </div>
           <h2 className="font-display text-4xl font-extrabold text-cream">
-            METRICS_ACHIEVED
+            DEVELOPER_IMPACT
           </h2>
           <span className="absolute -top-3 -right-2 font-mono text-xs text-primary/45 font-bold select-none">+</span>
         </div>
@@ -120,37 +121,37 @@ export default function Achievements() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           <div className="bg-elevated border border-border-subtle/40 p-6 flex flex-col items-center justify-center text-center">
             <div className="font-display text-3xl md:text-4xl font-black text-primary mb-1">
-              <Counter end={2185} suffix="+" />
+              <Counter end={8} suffix="+" />
             </div>
             <p className="font-mono text-[9px] uppercase font-bold text-on-surface-variant tracking-wider">
-              LEETCODE_RATING
+              PROJECTS_BUILT
             </p>
           </div>
 
           <div className="bg-elevated border border-border-subtle/40 p-6 flex flex-col items-center justify-center text-center">
             <div className="font-display text-3xl md:text-4xl font-black text-primary mb-1">
-              <Counter end={1420} suffix="+" />
+              <Counter end={20} suffix="+" />
             </div>
             <p className="font-mono text-[9px] uppercase font-bold text-on-surface-variant tracking-wider">
-              ANNUAL_COMMITS
+              TECHNOLOGIES_USED
             </p>
           </div>
 
           <div className="bg-elevated border border-border-subtle/40 p-6 flex flex-col items-center justify-center text-center">
             <div className="font-display text-3xl md:text-4xl font-black text-primary mb-1">
-              <Counter end={184} suffix="" />
+              <Counter end={2} suffix="" />
             </div>
             <p className="font-mono text-[9px] uppercase font-bold text-on-surface-variant tracking-wider">
-              GITHUB_STARS
+              INTERNSHIPS
             </p>
           </div>
 
           <div className="bg-elevated border border-border-subtle/40 p-6 flex flex-col items-center justify-center text-center">
             <div className="font-display text-3xl md:text-4xl font-black text-primary mb-1">
-              <Counter end={3} suffix="x" />
+              <Counter end={3} suffix="" />
             </div>
             <p className="font-mono text-[9px] uppercase font-bold text-on-surface-variant tracking-wider">
-              HACKATHON_WINS
+              CERTIFICATIONS
             </p>
           </div>
         </div>
