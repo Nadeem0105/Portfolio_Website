@@ -170,7 +170,7 @@ export async function GET() {
     }
 
     return NextResponse.json({
-      username,
+      username: userData.login || username,
       followers: userData.followers || 0,
       publicRepos: (userData.public_repos || 0) + (userData.total_private_repos || 0),
       totalStars,
